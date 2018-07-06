@@ -8,51 +8,28 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <utility>
+#include "classes.hpp"
+
 
 using namespace std;
 
-int getN();
-void genPerms(vector<int> & queenPos, int currLen);
+short getBoardSize();
 
 int main(int argc, const char * argv[]) {
-    int numQueens = getN();
-    vector<int> queenPos;
-    queenPos.resize(numQueens);
-    for(int i = 0; i < numQueens; i++){
-        queenPos[i] = i + 1;
-    }
-    genPerms(queenPos, 0);
+    int boardSize = getBoardSize();
+    N_Queens nQueens(boardSize);
     return 0;
 }
 
-int getN(){
-    cout << "Please enter a value for n.\n";
+short getBoardSize(){
+    cout << "Please enter the board size.\n";
     string input;
     cin >> input;
     try {
-        int n = stoi(input);
+        short n = (short)stoi(input);
         return n;
     } catch (invalid_argument i) {
         cout << "You entered an invalid value please try again.\n";
-        return getN();
-    }
-}
-
-void genPerms(vector<int> & queenPos, int currLen){
-    if(currLen == queenPos.size()){
-        for(unsigned i = 0; i < queenPos.size(); i++){
-            cout << queenPos[i] << " ";
-        }
-        cout << endl;
-    }
-    else{
-        for(unsigned i = currLen; i < queenPos.size(); i++){
-            std::swap(queenPos[currLen], queenPos[i]);
-            genPerms(queenPos, currLen + 1);
-            std::swap(queenPos[currLen], queenPos[i]);
-        }
+        return getBoardSize();
     }
 }
