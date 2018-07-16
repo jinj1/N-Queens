@@ -35,8 +35,8 @@ void N_Queens::genPerms(short currLen){
     }
 }
 
-void N_Queens::printSols(){
-    for(vector<short> sol: currSols){
+void N_Queens::printSol(){
+    for(set<short> sol: currSols){
         for(short i: sol){
             for(short j = 0; j < i; j++)
                 cout << "-";

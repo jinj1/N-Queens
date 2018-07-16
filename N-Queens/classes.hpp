@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <set>
 #include <iostream>
 #include <algorithm>
 #include <utility>
@@ -25,10 +26,10 @@ public:
 private:
     
     vector<short> queenPos;
-    vector<vector<short> > currSols;
+    vector<set<short> > currSols;
     
     void genPerms(short currLen);
-    void printSols();
+    void printSol();
     
 };
 
