@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <vector>
 #include <set>
-#include <unordered_set>
 #include <iostream>
 #include <algorithm>
 #include <utility>
@@ -27,14 +26,14 @@ public:
 private:
     
     vector<short> queenPos;
-    unordered_set<set<short> > currSols;
+    set<vector<short> > currSols;
     void genPerms(short currLen);
     bool promising(short currLen);
     void solFound();
-    void reflectX(set<short> & temp);
-    void reflectY(set<short> & temp);
-    void reflectYX(set<short> & temp);
-    void reflectNegYX(set<short> & temp);
+    void reflectX(vector<short> & temp);
+    void reflectY(vector<short> & temp);
+    void reflectYX(vector<short> & temp);
+    void reflectNegYX(vector<short> & temp);
     void printSol();
     
 };

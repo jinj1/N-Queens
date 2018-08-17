@@ -18,6 +18,7 @@ short getBoardSize();
 int main(int argc, const char * argv[]) {
     int boardSize = getBoardSize();
     N_Queens nQueens(boardSize);
+    nQueens.solve();
     return 0;
 }
 
